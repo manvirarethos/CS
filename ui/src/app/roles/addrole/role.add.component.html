@@ -1,0 +1,110 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-10">
+        <h2>Role List</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a (click)="onBack()">Roles</a>
+            </li>
+            <li class="active">
+                <strong>Add Role</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-2 ">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form ngNoForm id="taskForm" class="form-horizontal">
+                        <p>Note: * are mandatory fields.</p>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-2 control-label">User Role Type *</label>
+
+                            <div class="col-sm-10">
+                                <select required class="form-control" name="Heading" [(ngModel)]="taskModel.RoleForUserType">
+                                    <option value="">Choose Heading</option>
+                                        <option value="Application Admin">Application Admin</option>
+                                        <option value="Application User">Application User</option> 
+                                        <option value="Company Admin">Company Admin</option> 
+                                        <option value="Company User">Company User</option> 
+                                        <option value="Store Admin">Store Admin</option> 
+                                        <option value="Store User">Store User</option> 
+                            </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-2 control-label">Role Name*</label>
+
+                            <div class="col-sm-10">
+                                <input required type="text" placeholder="Role Name" name="Name" [(ngModel)]="taskModel.Name" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-2 control-label">Role Title*</label>
+
+                            <div class="col-sm-10">
+                                <input required type="text" placeholder="Role Title" name="Title" [(ngModel)]="taskModel.Title" class="form-control">
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-2 control-label">Staus*</label>
+
+                            <div class="col-sm-10">
+                                <select required class="form-control" name="Status" [(ngModel)]="taskModel.Status">
+                                    <option value="">Choose Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                            </div>
+
+                        </div>
+
+      
+                        <div class="form-group col-sm-12" >
+                            <label class="col-sm-2 control-label"> </label>
+
+                            <div class="col-sm-10">
+                               <label class="col-sm-12 ">Choose tasks for this role</label>
+                            </div>
+
+                        </div>
+                      
+                        <div class="form-group col-sm-12" *ngFor="let hed of Headings">
+                            <label class="col-sm-2 control-label">{{hed.Heading}}</label>
+
+                            <div class="col-sm-10">
+                                <div class="col-sm-4" *ngFor="let task of hed.Tasks">
+                                    <input type="checkbox" (click)="CheckTask(task,$event.target.checked)" class="" value="task.TaskName"> {{task.Name}}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-sm btn-success" type="button" (click)="Save()"><li class="fa fa-save"></li> Save</button>
+                                <button class="btn btn-sm btn-success" type="button" (click)="onBack()"><li class="fa fa-arrow-left"></li> Back to list</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<sharedModal [Title]="'Add Confirmation'" [desc]="Msg" (btnOKClicked)="btnOK($event)"></sharedModal>

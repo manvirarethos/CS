@@ -1,0 +1,131 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Users List</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a (click)="onBack()">Users</a>
+            </li>
+            <li class="active">
+                <strong>Users Add</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2 ">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form ngNoForm id="userForm" class="form-horizontal">
+                        <p>Note: * are mandatory fields.</p>
+                        <div class="form-group col-sm-6">
+                            <label class="col-lg-4 control-label">First Name</label>
+
+                            <div class="col-lg-8">
+                                <input name="firstName"  required type="text" [(ngModel)]="UserModel.FirstName" placeholder="First Name" class="form-control">
+                                <!-- <span class="help-block m-b-none">Example block-level help text here.</span> -->
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="col-lg-4 control-label">Last Name</label>
+
+                            <div class="col-lg-8">
+                                <input name="lastName"  required type="text" [(ngModel)]="UserModel.LastName" placeholder="Last name" class="form-control">
+                                <!-- <span class="help-block m-b-none">Example block-level help text here.</span> -->
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="col-lg-4 control-label">User Type</label>
+
+                            <div class="col-lg-8">
+                                <select name="userType"  required class="form-control" [(ngModel)]="UserModel.UserType" (change)="OnUserTypeChange()">
+                                    <option value="">Choose User Type</option>
+                                    <option value="Company Admin">Company Admin</option>
+                                    <option value="Company User">Company User</option>
+                                    <option value="Location Admin">Location Admin</option>
+                                    <option value="Location User">Location User</option>
+                            </select>
+                                <!-- <ng-select [allowClear]="true" [items]="[ {id:'CompanyAdmin',text:'Company Admin'},{id:'LocationUser',text:'Location User'}]"
+                                    [disabled]="disabled" (data)="refreshValue($event)" (selected)="selected($event)" (removed)="removed($event)"
+                                    (typed)="typed($event)" placeholder="No usertype selected">
+                                </ng-select> -->
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="col-lg-4 control-label">Status</label>
+
+                            <div class="col-lg-8">
+                                <select name="status"  required class="form-control" [(ngModel)]="UserModel.Status">
+                                    <option value="">Choose Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                                <!-- <ng-select [allowClear]="true" [items]="[ {id:'Active',text:'Active'},{id:'InActive',text:'Inactive'}]" [disabled]="disabled"
+                                    (data)="refreshValue($event)" (selected)="selected($event)" (removed)="removed($event)" (typed)="typed($event)"
+                                    placeholder="No status selected">
+                                </ng-select> -->
+                                <!-- <span class="help-block m-b-none">Example block-level help text here.</span> -->
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="col-lg-4 control-label">Email</label>
+
+                            <div class="col-lg-8">
+                                <input name="email" required email type="text" [(ngModel)]="UserModel.Email" placeholder="Email Address" class="form-control">
+                                <!-- <span class="help-block m-b-none">Example block-level help text here.</span> -->
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="col-lg-4 control-label">Password</label>
+
+                            <div class="col-lg-8">
+                                <input name="password"  required type="password" [(ngModel)]="UserModel.Password" placeholder="Password" class="form-control">
+                                <!-- <span class="help-block m-b-none">Example block-level help text here.</span> -->
+                            </div>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label class="col-sm-2 control-label"> </label>
+
+                            <div class="col-sm-10">
+                                <label class="col-sm-12 ">Choose Roles for this user</label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-sm-12" >
+                            <label class="col-sm-2 control-label"></label>
+
+                            <div class="col-sm-10">
+                                <div class="col-sm-4" *ngFor="let task of Roles">
+                                    <input  type="checkbox" (click)="CheckTask(task,$event.target.checked)"> {{task.Name}}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-sm btn-success" type="button" (click)="Save()" ><li class="fa fa-save"></li> Save</button>
+                                <button class="btn btn-sm btn-success" type="button" (click)="onBack()" ><li class="fa fa-arrow-left"></li> Back to list</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<sharedModal [Title]="'Add Confirmation'" [desc]="Msg" (btnOKClicked)="btnOK($event)"></sharedModal>

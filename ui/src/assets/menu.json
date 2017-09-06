@@ -1,0 +1,94 @@
+﻿[
+  {
+    "userType": 2,
+    "url": "/admin/dashboard",
+    "text": "Dashboard",
+    "cssClass": "fa fa-users"
+
+  },
+  {
+    "userType": 2,
+    "text": "Users",
+    "cssClass": "fa fa-user",
+    "submenu": [
+      {
+        "url": "/company/users",
+        "text": "Users",
+        "cssClass": "fa fa-user"
+      },
+      {
+        "url": "/company/locationusers",
+        "text": "Client Users",
+        "cssClass": "fa fa-user"
+      }
+    ]
+
+  },
+   {
+    "userType": 2,
+    "text": "Settings",
+    "cssClass": "fa fa-th",
+    "submenu": [
+      {
+        "url": "/company/locations",
+        "text": "Locations",
+        "cssClass": "fa fa-user"
+      },
+      {
+        "url": "/company/customers",
+        "text": "Customers",
+        "cssClass": "fa fa-user"
+      }
+      ,
+      {
+        "url": "/company/unit",
+        "text": "Unit Master",
+        "cssClass": "fa fa-item"
+      }
+      ,
+      {
+        "url": "/company/product",
+        "text": "Product",
+        "cssClass": "fa fa-item"
+      }
+       ,
+      {
+        "url": "/company/producttype",
+        "text": "Product Type",
+        "cssClass": "fa fa-item"
+      }, {
+        "url": "/task/tasklist",
+        "text": "Tasks",
+        "cssClass": "fa fa-task"
+      }
+    ]
+
+  },
+  {
+    "userType": 2,
+    "text": "Transactions",
+    "cssClass": "fa fa-tasks",
+    "submenu": [
+      {
+        "url": "/company/inwards",
+        "text": "Inwards",
+        "cssClass": "fa fa-user"
+      },
+      {
+        "url": "/company/outwards",
+        "text": "Outwards",
+        "cssClass": "fa fa-user"
+      }
+      ,
+      {
+        "url": "/company/sale",
+        "text": "Sale",
+        "cssClass": "fa fa-item"
+      }
+      
+     
+    ]
+
+  }
+
+]

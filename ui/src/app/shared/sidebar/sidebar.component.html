@@ -1,0 +1,44 @@
+<div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+        <li class="nav-header">
+            <div class="dropdown profile-element">
+                <span>
+                        <img alt="image" class="img-circle" src="assets/Images/profile_small.jpg" />
+                    </span>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="javascript(0)">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">{{CurrentUser?.FirstName+' '+CurrentUser?.LastName}}</strong><span class="text-muted text-xs block" ><b class="caret"></b></span>
+                            </span> 
+                        </span>
+                    </a>
+                <ul class="dropdown-menu">
+                    <li><a [routerLink]="['/profile/profile']"><span class="fa fa-at"></span> Me</a></li>
+
+                    <li><a [routerLink]="['/changePassword/changePassword']"><span class="fa fa-key"></span> Change Password</a></li>
+
+                    <li><a (click)="LogOut()"><span class="fa fa-power-off"></span> Logout</a></li>
+                </ul>
+            </div>
+            <div class="logo-element">
+                CSMS
+            </div>
+        </li>
+        <ng-container *ngIf="Menus">
+            <li *ngFor="let menu of Menus">
+                <!-- <a *ngIf="menu.url" [routerLink]="[menu.url]"><i class="{{menu.cssClass}}"></i> <span class="nav-label">{{menu.text}}</span> </a> -->
+                <a *ngIf="menu.Tasks"><i class="{{menu.CssClass}}"></i> <span class="nav-label">{{menu.Heading}}</span> <span class="fa arrow"></span></a>
+                <ul *ngIf="menu.Tasks" class="nav nav-second-level collapse ">
+                    <li *ngFor="let smenu of menu.Tasks">
+                        <a [routerLink]="[smenu.Url]">{{smenu.Title}}</a>
+                    </li>
+                </ul>
+                
+
+            </li>
+        </ng-container>
+
+        <!--  <app-sidebar> </app-sidebar>-->
+
+    </ul>
+</div>
